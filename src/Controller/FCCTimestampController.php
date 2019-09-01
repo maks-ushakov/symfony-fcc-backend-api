@@ -8,18 +8,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class FCCTimestampController extends AbstractController
 {
     /**
-     * @Route("/timestamp", name="time.doc")
+     * @Route("/timestamp", name="timestamp.doc")
      */
     public function index()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/FCCTimestampController.php',
+        return $this->render('timestamp/index.html.twig', [
+            'unix' => date('U'),
+            'normal'=> date('F d, Y'),
         ]);
     }
 
     /**
-     * @Route("/api/time/{timestr?}", name="timestamp")
+     * @Route("/api/time/{timestr?}", name="timestamp.api")
      */
     public function convert($timestr)
     {
