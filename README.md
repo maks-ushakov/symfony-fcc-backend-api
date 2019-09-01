@@ -1,77 +1,73 @@
-Symfony Standard Edition
+API Project on Symfony 
 ========================
 
-**WARNING**: This distribution does not support Symfony 4. See the
-[Installing & Setting up the Symfony Framework][15] page to find a replacement
-that fits you best.
+The FreeCodeCamp API Projects solved using PHP and Symfony 4.3 framework.
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+## About
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+This project started for the learning reason. The main purpose of the project is to get some experience with Composer and Symfony PHP Framework
 
-What's inside?
---------------
+## Requirements
 
-The Symfony Standard Edition is configured with the following defaults:
+ - PHP 7.1 and highter
+ - Composer 1.9
+ - Symfony 4.3
 
-  * An AppBundle you can use to start coding;
+## Installation
 
-  * Twig as the only configured template engine;
+Get the source code from git
+```bash
+git clone https://github.com/maks-ushakov/symfony-fcc-backend-api.git
+```
 
-  * Doctrine ORM/DBAL;
+Change directory to project
+```bash
+cd symfony-fcc-backend-api
+```
 
-  * Swiftmailer;
+Install dependencies
+```bash
+composer install
+```
 
-  * Annotations enabled for everything.
+Edit or create `.env` file
 
-It comes pre-configured with the following bundles:
+Run server
+```bash
+php bin/console server:run
+```
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+Or start server for long time
+```bash
+php bin/console server:start
+```
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+## Apache config
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+You can install project to Apache directory, then write path to `/public` on the Apache config
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+For Ubuntu and Apache2 you can create virtual host `/etc/apache2/sites-available/fccapi.local.conf`:
+```apacheconfig
+<VirtualHost *:80>
+	ServerName fccapi.local
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/htdocs/symfony-fcc-backend-api/public
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+	<Directory "/var/www/htdocs/symfony-fcc-backend-api/public">
+        AllowOverride All
+        Order Allow,Deny
+        Allow from All
+	</Directory>
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+	ErrorLog ${APACHE_LOG_DIR}/error-fccapi.log
+	CustomLog ${APACHE_LOG_DIR}/access-fccapi.log combined
+</VirtualHost>
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+```
 
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
 
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
-
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.4/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.4/doctrine.html
-[8]:  https://symfony.com/doc/3.4/templating.html
-[9]:  https://symfony.com/doc/3.4/security.html
-[10]: https://symfony.com/doc/3.4/email.html
-[11]: https://symfony.com/doc/3.4/logging.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-[14]: https://symfony.com/doc/current/setup/built_in_web_server.html
-[15]: https://symfony.com/doc/current/setup.html
+## use cases
+ - [Timestamp Microservice](cases/timestamp.md)
+ - [Header Parser](cases/headerparser.md)
+ - [File Metadata](cases/filemetadata.md)
+ - [Exercise Tracker](cases/exercisetraker.md)

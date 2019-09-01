@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FreeCodeCamp API Projects with Symfony{% endblock %}
+
+{% block body %}
+    <h2>About project</h2>
+    <div>
+        <p>This project started for learning reason. The main purpose of the project is to get some experience with Composer and Symfony PHP Framework</p>
+        <p></p>
+    </div>
+    <h2>List of projects</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Service</th>
+            <th>Documentation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Timestamp Microservice</td>
+            <td><a href="{{ path('timestamp.doc') }}">{{ path('timestamp.doc') }}</a></td>
+        </tr>
+        <tr>
+            <td>Header Parser</td>
+            <td> - </td>
+        </tr>
+        <tr>
+            <td>File Metadata</td>
+            <td> - </td>
+        </tr>
+        <tr>
+            <td>Exersise Tracker</td>
+            <td> - </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
