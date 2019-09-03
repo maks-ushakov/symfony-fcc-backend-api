@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Header Parser{% endblock %}
+
+{% block body %}
+<h1 class="header">
+    API Project: Request Header Parser Microservice
+</h1>
+User stories:
+<ol>
+    <li>I can get the IP address, preferred languages (from header <em>Accept-Language</em>)<br> and system infos (from header <em>User-Agent</em>) for my device.</li>
+</ol>
+
+</section>
+<section id="usage">
+    <h2>Example usage:</h3>
+        <p>If you want to use natural data string as parameter:</p>
+        <div>
+            <code>[base url]{{ path('whoami.api') }}</code>
+        </div>
+</section>
+<section id="output">
+    <h2>Example output:</h3>
+        <code>
+				<pre>
+{
+  "ipaddress": "127.0.0.1",
+  "language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+  "software": "Mozilla/5.0 (X11; Ubuntu;
+               Linux x86_64; rv:50.0)
+               Gecko/20100101 Firefox/50.0"
+}
+				</pre>
+        </code>
+{% endblock %}
